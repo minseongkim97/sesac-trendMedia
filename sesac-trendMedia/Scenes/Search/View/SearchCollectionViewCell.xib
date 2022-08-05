@@ -39,7 +39,7 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1o-E7-Z2C">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="316"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12" translatesAutoresizingMaskIntoConstraints="NO" id="fM3-Iw-7hs">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12" translatesAutoresizingMaskIntoConstraints="NO" id="fM3-Iw-7hs">
                                                 <rect key="frame" x="0.0" y="0.0" width="260" height="156"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="fM3-Iw-7hs" secondAttribute="height" multiplier="2:1.2" id="sUu-iN-Iyy"/>
@@ -59,7 +59,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-NY-11D">
                                                 <rect key="frame" x="20" y="254" width="220" height="1"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="TBg-CN-GSd"/>
                                                 </constraints>
@@ -180,9 +180,15 @@
             </constraints>
             <size key="customSize" width="300" height="433"/>
             <connections>
+                <outlet property="actorsLabel" destination="V9D-6I-WC7" id="28d-GR-N7o"/>
                 <outlet property="clipButton" destination="v3D-pR-hhV" id="uin-Vd-sV2"/>
                 <outlet property="containerView" destination="LjO-tc-yGp" id="9XP-am-hAI"/>
+                <outlet property="genresLabel" destination="6Oy-uQ-Ddn" id="eXX-5O-Spw"/>
                 <outlet property="infoView" destination="t1o-E7-Z2C" id="4bo-HZ-siL"/>
+                <outlet property="posterImageView" destination="fM3-Iw-7hs" id="eVF-00-iVH"/>
+                <outlet property="rateLabel" destination="V8h-Nz-Ajd" id="SYr-sS-iYk"/>
+                <outlet property="releaseDateLabel" destination="YKr-SP-n4F" id="y3d-CU-foO"/>
+                <outlet property="titleLabel" destination="RW5-Sb-bw5" id="BDd-KT-5Nc"/>
             </connections>
             <point key="canvasLocation" x="333.33333333333337" y="244.08482142857142"/>
         </collectionViewCell>

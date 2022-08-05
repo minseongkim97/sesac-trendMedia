@@ -15,9 +15,14 @@ import SwiftyJSON
 class ViewController: UIViewController {
     //MARK: - Properties
     let hud = JGProgressHUD()
-    var list: [Movie] = [] {
+    
+    var startPage = 1
+    var totalPage = 0
+    var list: [TV] = [] {
         didSet {
-            tmdbCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.tmdbCollectionView.reloadData()
+            }
         }
     }
     
@@ -33,51 +38,67 @@ class ViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestTMDB()
+        requestTMDB(pagination: false, startPage: 1)
     }
 
     //MARK: - Helpers
-    func requestTMDB() {
+    func requestTMDB(pagination: Bool, startPage: Int) {
         hud.show(in: self.view)
-        let url = EndPoint.trendingURL + "api_key=\(APIKey.tmdbKey)"
-        
-        AF.request(url, method: .get).validate().responseData { [weak self] response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-                
-                self?.hud.dismiss()
-                
-            case .failure(let error):
-                self?.hud.dismiss()
-                print(error)
-            }
+        APIManager.shared.requestTMDB(pagination: pagination, page: startPage) { [weak self] totalPage, tvs in
+            self?.totalPage = totalPage
+            self?.list.append(contentsOf: tvs)
+            self?.hud.dismiss()
         }
     }
     
-    func collectionViewLayout() -> UICollectionViewFlowLayout {
+    private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let space: CGFloat = 8
         let width = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: width, height: width * 1.25)
+        layout.itemSize = CGSize(width: width, height: width * 1.23)
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = space
         layout.minimumLineSpacing = space
         return layout
     }
 
+//    private func createSpinnerFooter() -> UIView {
+//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+//
+//        let spinner = UIActivityIndicatorView()
+//        spinner.center = footerView.center
+//        footerView.addSubview(spinner)
+//        spinner.startAnimating()
+//
+//        return footerView
+//    }
 }
 
 //MARK: - Extension: UICollectionView
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
+        cell.configureCell(tv: list[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let detailVC = UIStoryboard(name: StoryboardName.detail, bundle: nil).instantiateViewController(identifier: DetailViewController.identifier)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        guard !APIManager.shared.isPaginating else { return }
+        if (position > (tmdbCollectionView.contentSize.height - 100 - scrollView.frame.size.height)) && startPage < totalPage {
+            startPage += 1
+            requestTMDB(pagination: true, startPage: startPage)
+        }
     }
 }
 
