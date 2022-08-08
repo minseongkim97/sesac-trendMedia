@@ -13,17 +13,19 @@ struct TV {
     var actor: [String]
     var genres: [String]
     var thumbnail: String?
+    var backdropPath: String?
     var average: Double
     var releaseDate: String
     var overview: String
     
     static func defaultTV() -> TV {
         return TV(id: 0,
-                     title: "TV",
-                     actor: [],
-                     genres: [],
-                     thumbnail: nil,
-                     average: 0.0,
+                  title: "TV",
+                  actor: [],
+                  genres: [],
+                  thumbnail: nil,
+                  backdropPath: nil,
+                  average: 0.0,
                   releaseDate: "00/00/0000",
                   overview: "")
     }

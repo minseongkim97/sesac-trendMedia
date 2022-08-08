@@ -72,14 +72,26 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
         cell.configureCell(tv: list[indexPath.row])
+        cell.clipButtonAction = { [weak self] in
+            if let id = self?.list[indexPath.row].id {
+                APIManager.shared.requestVideoKey(id: id) { key in
+                    DispatchQueue.main.async {
+                        guard let webVC = UIStoryboard(name: StoryboardName.main, bundle: nil).instantiateViewController(identifier: WebViewController.identifier) as? WebViewController else { return }
+                        webVC.key = key
+                        self?.navigationController?.pushViewController(webVC, animated: true)
+                    }
+                }
+            }
+           
+            print("123")
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard let detailVC = UIStoryboard(name: StoryboardName.detail, bundle: nil).instantiateViewController(identifier: DetailViewController.identifier) as? DetailViewController else { return }
-        detailVC.tvID = list[indexPath.row].id
-        detailVC.overview = list[indexPath.row].overview
+        detailVC.tv = list[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     

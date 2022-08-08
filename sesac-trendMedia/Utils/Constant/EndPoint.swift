@@ -17,4 +17,8 @@ struct EndPoint {
     static func creditsURL(of id: Int) -> String {
         return "/tv/\(id)/credits?"
     }
+    
+    static func videosURL(of id: Int) -> String {
+        return "/tv/\(id)/videos?"
+    }
 }

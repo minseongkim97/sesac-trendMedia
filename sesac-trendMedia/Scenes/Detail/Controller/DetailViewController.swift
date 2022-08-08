@@ -13,9 +13,14 @@ class DetailViewController: UIViewController {
     //MARK: - Properties
     let hud = JGProgressHUD()
     
-    var tvID = 0
-    var overview = ""
-    var isExpanded: Bool = false
+    var tv = TV.defaultTV()
+    var isExpanded: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.creditTableView.reloadData()
+            }
+        }
+    }
     
     var castList: [Cast] = [] {
         didSet {
@@ -51,7 +56,7 @@ class DetailViewController: UIViewController {
     //MARK: - Helpers
     func requestCredits() {
         hud.show(in: self.view)
-        APIManager.shared.requestTVCredits(id: tvID) { [weak self] casts, crews in
+        APIManager.shared.requestTVCredits(id: tv.id) { [weak self] casts, crews in
             self?.castList = casts
             self?.crewList = crews
             self?.hud.dismiss(animated: true)
@@ -61,7 +66,6 @@ class DetailViewController: UIViewController {
 
 //MARK: - Extension: UITableView
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -95,17 +99,17 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.identifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
-            cell.configureCell(overview: overview)
-            return cell
+            guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.identifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
+            overviewCell.configureCell(overview: tv.overview)
+            return overviewCell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
-            cell.configureCell(credit: castList[indexPath.row])
-            return cell
+            guard let detailCell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
+            detailCell.configureCell(credit: castList[indexPath.row])
+            return detailCell
         case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
-            cell.configureCell(credit: crewList[indexPath.row])
-            return cell
+            guard let detailCell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
+            detailCell.configureCell(credit: crewList[indexPath.row])
+            return detailCell
         default:
             return UITableViewCell()
         }
@@ -118,7 +122,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.moreButton.isHidden = !cell.moreButton.isHidden
             isExpanded = !isExpanded
             cell.overviewLabel.numberOfLines = isExpanded ? 0 : 2
-            tableView.reloadData()
         }
     }
     

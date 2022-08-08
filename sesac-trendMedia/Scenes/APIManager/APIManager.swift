@@ -17,7 +17,7 @@ class APIManager {
     
     private init() { }
     
-    typealias completion = (() -> Void)
+    typealias completion = ((String) -> Void)
     typealias tmdbCompletion = ((Int, [TV]) -> Void)
     typealias creditsCompletion = (([Cast], [Crew]) -> Void)
     
@@ -37,11 +37,12 @@ class APIManager {
 
                 let tvList = json["results"].arrayValue.map {
                     return TV(id: $0["id"].intValue,
-                                 title: $0["name"].stringValue,
-                                 actor: [],
-                                 genres: $0["genre_ids"].arrayValue.map { "#\(Constant.genre[$0.intValue] ?? "TV")" },
-                                 thumbnail: $0["poster_path"].string,
-                                 average: $0["vote_average"].doubleValue,
+                              title: $0["name"].stringValue,
+                              actor: [],
+                              genres: $0["genre_ids"].arrayValue.map { "#\(Constant.genre[$0.intValue] ?? "TV")" },
+                              thumbnail: $0["poster_path"].string,
+                              backdropPath: $0["backdrop_path"].string,
+                              average: $0["vote_average"].doubleValue,
                               releaseDate: $0["first_air_date"].stringValue,
                               overview: $0["overview"].stringValue)
                 }
@@ -97,6 +98,21 @@ class APIManager {
                                 job: $0["job"].stringValue)
                 }
                 completion(casts, crews)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func requestVideoKey(id: Int, completion: @escaping completion) {
+        let videoURL = EndPoint.baseURL + EndPoint.videosURL(of: id) + "api_key=\(APIKey.tmdbKey)"
+        AF.request(videoURL, method: .get).validate().responseData(queue: .global()) { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let key = json["results"][0]["key"].stringValue
+            
+                completion(key)
             case .failure(let error):
                 print(error)
             }

@@ -88,6 +88,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="paperclip" catalog="system" symbolScale="medium"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="clipButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="pZJ-3x-aFb"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vPc-QI-nvH">
                                                 <rect key="frame" x="20" y="108" width="64" height="28"/>

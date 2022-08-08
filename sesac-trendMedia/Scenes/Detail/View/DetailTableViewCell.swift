@@ -19,6 +19,10 @@ class DetailTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    override func prepareForReuse() {
+        personImageView.image = UIImage(systemName: "person.fill")
+    }
+    
     //MARK: - Helpers
     func configureCell(credit: Cast) {
         if let profilePath = credit.profilePath {

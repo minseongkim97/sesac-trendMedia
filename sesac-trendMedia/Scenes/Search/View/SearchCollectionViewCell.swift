@@ -11,6 +11,8 @@ import Kingfisher
 
 class SearchCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
+    var clipButtonAction : (() -> ())?
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var clipButton: UIButton!
@@ -26,7 +28,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         configureAttribute()
     }
-
+    
+    //MARK: - Action
+    @IBAction func clipButtonClicked(_ sender: UIButton) {
+        clipButtonAction?()
+    }
+    
     //MARK: - Helpers
     private func configureAttribute() {
         containerView.layer.cornerRadius = 8

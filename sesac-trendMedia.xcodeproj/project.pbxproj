@@ -40,6 +40,9 @@
 		24F45E7828A0DD38004F319F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45E7728A0DD38004F319F /* URL+Extension.swift */; };
 		24F45E7B28A0EDE8004F319F /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45E7928A0EDE8004F319F /* OverViewTableViewCell.swift */; };
 		24F45E7C28A0EDE8004F319F /* OverViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F45E7A28A0EDE8004F319F /* OverViewTableViewCell.xib */; };
+		24F45E8828A1A64D004F319F /* CreditHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F45E8728A1A64C004F319F /* CreditHeaderView.xib */; };
+		24F45E8A28A1A654004F319F /* CreditHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45E8928A1A654004F319F /* CreditHeaderView.swift */; };
+		24F45E8C28A1AB1E004F319F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45E8B28A1AB1E004F319F /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		24F45E7728A0DD38004F319F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		24F45E7928A0EDE8004F319F /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
 		24F45E7A28A0EDE8004F319F /* OverViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewTableViewCell.xib; sourceTree = "<group>"; };
+		24F45E8728A1A64C004F319F /* CreditHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHeaderView.xib; sourceTree = "<group>"; };
+		24F45E8928A1A654004F319F /* CreditHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHeaderView.swift; sourceTree = "<group>"; };
+		24F45E8B28A1AB1E004F319F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				248B1DBE289AE81D00AF59F8 /* ViewController.swift */,
+				24F45E8B28A1AB1E004F319F /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +266,8 @@
 				24F45E10289D4BF5004F319F /* DetailTableViewCell.xib */,
 				24F45E7928A0EDE8004F319F /* OverViewTableViewCell.swift */,
 				24F45E7A28A0EDE8004F319F /* OverViewTableViewCell.xib */,
+				24F45E8928A1A654004F319F /* CreditHeaderView.swift */,
+				24F45E8728A1A64C004F319F /* CreditHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 				248B1DD1289AE88800AF59F8 /* .gitignore in Resources */,
 				248B1DC7289AE82000AF59F8 /* LaunchScreen.storyboard in Resources */,
 				24F45DD8289AEBB0004F319F /* SearchCollectionViewCell.xib in Resources */,
+				24F45E8828A1A64D004F319F /* CreditHeaderView.xib in Resources */,
 				248B1DC4289AE82000AF59F8 /* Assets.xcassets in Resources */,
 				24F45E7C28A0EDE8004F319F /* OverViewTableViewCell.xib in Resources */,
 				248B1DC2289AE81D00AF59F8 /* Main.storyboard in Resources */,
@@ -380,6 +390,7 @@
 				24F45E11289D4BF5004F319F /* DetailTableViewCell.swift in Sources */,
 				248B1DBB289AE81D00AF59F8 /* AppDelegate.swift in Sources */,
 				24F45DD7289AEBB0004F319F /* SearchCollectionViewCell.swift in Sources */,
+				24F45E8A28A1A654004F319F /* CreditHeaderView.swift in Sources */,
 				24F45DF1289BCBE6004F319F /* TimeWindow.swift in Sources */,
 				24F45E7828A0DD38004F319F /* URL+Extension.swift in Sources */,
 				24F45DFD289D129D004F319F /* APIManager.swift in Sources */,
@@ -389,6 +400,7 @@
 				24F45E01289D1F9D004F319F /* Date+Extension.swift in Sources */,
 				24F45E0B289D497D004F319F /* StoryboardName.swift in Sources */,
 				24F45E03289D206E004F319F /* String+Extension.swift in Sources */,
+				24F45E8C28A1AB1E004F319F /* WebViewController.swift in Sources */,
 				24F45E19289D5DD7004F319F /* Cast.swift in Sources */,
 				24F45DD4289AEB7E004F319F /* TV.swift in Sources */,
 				24F45DEF289BCBC2004F319F /* MediaType.swift in Sources */,
