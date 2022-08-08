@@ -37,7 +37,9 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var backdropImageView: UIImageView!
+    @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var creditTableView: UITableView! {
         didSet {
             creditTableView.delegate = self
@@ -51,6 +53,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestCredits()
+        configureHeaderView(tv: tv)
     }
     
     //MARK: - Helpers
@@ -59,7 +62,20 @@ class DetailViewController: UIViewController {
         APIManager.shared.requestTVCredits(id: tv.id) { [weak self] casts, crews in
             self?.castList = casts
             self?.crewList = crews
-            self?.hud.dismiss(animated: true)
+            DispatchQueue.main.async {
+                self?.hud.dismiss(animated: true)
+            }
+        }
+    }
+    
+    func configureHeaderView(tv: TV) {
+        nameLabel.text = tv.title
+        if let posterPath = tv.thumbnail {
+            posterImageView.kf.setImage(with: URL(string: EndPoint.imagePath + posterPath))
+        }
+        if let backdropPath = tv.backdropPath {
+            print(EndPoint.imagePath + backdropPath)
+            backdropImageView.kf.setImage(with: URL(string: EndPoint.imagePath + backdropPath))
         }
     }
 }

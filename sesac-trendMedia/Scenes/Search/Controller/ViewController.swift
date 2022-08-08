@@ -82,8 +82,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                 }
             }
-           
-            print("123")
         }
         return cell
     }
