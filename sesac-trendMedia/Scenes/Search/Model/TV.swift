@@ -15,6 +15,7 @@ struct TV {
     var thumbnail: String?
     var average: Double
     var releaseDate: String
+    var overview: String
     
     static func defaultTV() -> TV {
         return TV(id: 0,
@@ -23,6 +24,7 @@ struct TV {
                      genres: [],
                      thumbnail: nil,
                      average: 0.0,
-                     releaseDate: "00/00/0000")
+                  releaseDate: "00/00/0000",
+                  overview: "")
     }
 }

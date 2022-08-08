@@ -8,16 +8,31 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell {
-
+    //MARK: - Properties
+    @IBOutlet weak var personImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var castingLabel: UILabel!
+    
+    //MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK: - Helpers
+    func configureCell(credit: Cast) {
+        if let profilePath = credit.profilePath {
+            personImageView.kf.setImage(with: URL(string: EndPoint.imagePath + profilePath))
+        }
+        nameLabel.text = credit.name
+        castingLabel.text = credit.character
     }
     
+    func configureCell(credit: Crew) {
+        if let profilePath = credit.profilePath {
+            personImageView.kf.setImage(with: URL(string: EndPoint.imagePath + profilePath))
+        }
+        nameLabel.text = credit.name
+        castingLabel.text = credit.job
+    }
 }

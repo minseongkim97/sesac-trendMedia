@@ -61,17 +61,6 @@ class ViewController: UIViewController {
         layout.minimumLineSpacing = space
         return layout
     }
-
-//    private func createSpinnerFooter() -> UIView {
-//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-//
-//        let spinner = UIActivityIndicatorView()
-//        spinner.center = footerView.center
-//        footerView.addSubview(spinner)
-//        spinner.startAnimating()
-//
-//        return footerView
-//    }
 }
 
 //MARK: - Extension: UICollectionView
@@ -88,7 +77,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let detailVC = UIStoryboard(name: StoryboardName.detail, bundle: nil).instantiateViewController(identifier: DetailViewController.identifier)
+        guard let detailVC = UIStoryboard(name: StoryboardName.detail, bundle: nil).instantiateViewController(identifier: DetailViewController.identifier) as? DetailViewController else { return }
+        detailVC.tvID = list[indexPath.row].id
+        detailVC.overview = list[indexPath.row].overview
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     

@@ -30,6 +30,9 @@
                             <constraint firstItem="cuc-2N-cqb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wZS-1M-8CY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="creditTableView" destination="cuc-2N-cqb" id="JyU-Nl-b7p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct EndPoint {
     static let baseURL = "https://api.themoviedb.org/3"
     static let imagePath = "https://image.tmdb.org/t/p/w500"

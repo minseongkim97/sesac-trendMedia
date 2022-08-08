@@ -112,31 +112,23 @@
                                                     <constraint firstAttribute="height" constant="28" id="Q80-Rd-pU6"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9y8-0P-cem">
-                                                <rect key="frame" x="0.0" y="255" width="260" height="61"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Goe-bt-tno" secondAttribute="bottom" constant="20" id="3QK-D9-2QX"/>
                                             <constraint firstItem="V9D-6I-WC7" firstAttribute="leading" secondItem="t1o-E7-Z2C" secondAttribute="leading" constant="20" id="BQY-25-rmI"/>
                                             <constraint firstItem="7DS-mO-n9q" firstAttribute="centerY" secondItem="Goe-bt-tno" secondAttribute="centerY" id="G2e-rG-iIb"/>
-                                            <constraint firstItem="9y8-0P-cem" firstAttribute="leading" secondItem="t1o-E7-Z2C" secondAttribute="leading" id="J6y-XD-clu"/>
-                                            <constraint firstAttribute="bottom" secondItem="9y8-0P-cem" secondAttribute="bottom" id="L43-sj-27m"/>
                                             <constraint firstAttribute="trailing" secondItem="RW5-Sb-bw5" secondAttribute="trailing" constant="20" id="NxC-VO-pgl"/>
                                             <constraint firstItem="vPc-QI-nvH" firstAttribute="bottom" secondItem="fM3-Iw-7hs" secondAttribute="bottom" constant="-20" id="Ool-LH-2yc"/>
                                             <constraint firstItem="oT5-NY-11D" firstAttribute="leading" secondItem="t1o-E7-Z2C" secondAttribute="leading" constant="20" id="PPo-4b-V0k"/>
                                             <constraint firstItem="Goe-bt-tno" firstAttribute="top" secondItem="oT5-NY-11D" secondAttribute="bottom" constant="24" id="QHm-gf-qBM"/>
                                             <constraint firstItem="V9D-6I-WC7" firstAttribute="top" secondItem="RW5-Sb-bw5" secondAttribute="bottom" constant="8" id="QI5-r7-01B"/>
-                                            <constraint firstItem="9y8-0P-cem" firstAttribute="top" secondItem="oT5-NY-11D" secondAttribute="bottom" id="R42-FS-vcu"/>
                                             <constraint firstItem="Goe-bt-tno" firstAttribute="leading" secondItem="t1o-E7-Z2C" secondAttribute="leading" constant="20" id="X8J-k2-Yjm"/>
                                             <constraint firstAttribute="trailing" secondItem="oT5-NY-11D" secondAttribute="trailing" constant="20" id="Xv9-QI-2g4"/>
                                             <constraint firstAttribute="trailing" secondItem="V9D-6I-WC7" secondAttribute="trailing" constant="20" id="bdi-Z9-WPT"/>
                                             <constraint firstItem="v3D-pR-hhV" firstAttribute="top" secondItem="t1o-E7-Z2C" secondAttribute="top" constant="20" id="cAZ-CT-Fuc"/>
                                             <constraint firstAttribute="trailing" secondItem="fM3-Iw-7hs" secondAttribute="trailing" id="cH4-rj-l5P"/>
                                             <constraint firstAttribute="trailing" secondItem="v3D-pR-hhV" secondAttribute="trailing" constant="20" id="eRm-VZ-yqu"/>
-                                            <constraint firstAttribute="trailing" secondItem="9y8-0P-cem" secondAttribute="trailing" id="fef-5m-9Ns"/>
                                             <constraint firstAttribute="trailing" secondItem="7DS-mO-n9q" secondAttribute="trailing" constant="20" id="pEs-vL-Lqh"/>
                                             <constraint firstItem="fM3-Iw-7hs" firstAttribute="top" secondItem="t1o-E7-Z2C" secondAttribute="top" id="pYK-AJ-cv5"/>
                                             <constraint firstItem="oT5-NY-11D" firstAttribute="top" secondItem="V9D-6I-WC7" secondAttribute="bottom" constant="24" id="rRH-oz-l3o"/>
