@@ -45,6 +45,9 @@
 		24F45E9028A32B10004F319F /* TrendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F45E8E28A32B10004F319F /* TrendCollectionViewCell.xib */; };
 		24F45E9228A32BD3004F319F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45E9128A32BD3004F319F /* TrendViewController.swift */; };
 		24F45EA428A4281F004F319F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45EA328A4281F004F319F /* MainTableViewCell.swift */; };
+		24F45EAC28A4DB8B004F319F /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45EAB28A4DB8B004F319F /* Theater.swift */; };
+		24F45EAF28A4DC36004F319F /* Theater.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F45EAE28A4DC36004F319F /* Theater.storyboard */; };
+		24F45EB128A4DC9D004F319F /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F45EB028A4DC9D004F319F /* TheaterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		24F45E8E28A32B10004F319F /* TrendCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendCollectionViewCell.xib; sourceTree = "<group>"; };
 		24F45E9128A32BD3004F319F /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
 		24F45EA328A4281F004F319F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		24F45EAB28A4DB8B004F319F /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		24F45EAE28A4DC36004F319F /* Theater.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Theater.storyboard; sourceTree = "<group>"; };
+		24F45EB028A4DC9D004F319F /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 				24F45DFB289D1295004F319F /* APIManager */,
 				24F45DCE289AEB26004F319F /* Search */,
 				24F45DF2289BCCFA004F319F /* Detail */,
+				24F45EA728A4DB4A004F319F /* Theater */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -303,6 +310,48 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		24F45EA728A4DB4A004F319F /* Theater */ = {
+			isa = PBXGroup;
+			children = (
+				24F45EAA28A4DB73004F319F /* Model */,
+				24F45EA928A4DB71004F319F /* View */,
+				24F45EA828A4DB6E004F319F /* Controller */,
+			);
+			path = Theater;
+			sourceTree = "<group>";
+		};
+		24F45EA828A4DB6E004F319F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24F45EB028A4DC9D004F319F /* TheaterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24F45EA928A4DB71004F319F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24F45EAD28A4DC2A004F319F /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24F45EAA28A4DB73004F319F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24F45EAB28A4DB8B004F319F /* Theater.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24F45EAD28A4DC2A004F319F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				24F45EAE28A4DC36004F319F /* Theater.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -379,6 +428,7 @@
 				248B1DC4289AE82000AF59F8 /* Assets.xcassets in Resources */,
 				24F45E7C28A0EDE8004F319F /* OverViewTableViewCell.xib in Resources */,
 				248B1DC2289AE81D00AF59F8 /* Main.storyboard in Resources */,
+				24F45EAF28A4DC36004F319F /* Theater.storyboard in Resources */,
 				24F45E12289D4BF5004F319F /* DetailTableViewCell.xib in Resources */,
 				24F45E05289D4874004F319F /* Detail.storyboard in Resources */,
 				24F45E9028A32B10004F319F /* TrendCollectionViewCell.xib in Resources */,
@@ -407,6 +457,7 @@
 				24F45E01289D1F9D004F319F /* Date+Extension.swift in Sources */,
 				24F45E0B289D497D004F319F /* StoryboardName.swift in Sources */,
 				24F45E03289D206E004F319F /* String+Extension.swift in Sources */,
+				24F45EAC28A4DB8B004F319F /* Theater.swift in Sources */,
 				24F45E8C28A1AB1E004F319F /* WebViewController.swift in Sources */,
 				24F45E19289D5DD7004F319F /* Cast.swift in Sources */,
 				24F45E9228A32BD3004F319F /* TrendViewController.swift in Sources */,
@@ -415,6 +466,7 @@
 				248B1DD4289AE93300AF59F8 /* APIKey.swift in Sources */,
 				24F45DF7289BD3F2004F319F /* Constant.swift in Sources */,
 				24F45DED289BC9F1004F319F /* EndPoint.swift in Sources */,
+				24F45EB128A4DC9D004F319F /* TheaterViewController.swift in Sources */,
 				248B1DBD289AE81D00AF59F8 /* SceneDelegate.swift in Sources */,
 				24F45E09289D4911004F319F /* DetailViewController.swift in Sources */,
 			);
@@ -566,9 +618,10 @@
 				DEVELOPMENT_TEAM = GZCWDPJJ9Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sesac-trendMedia/Resource/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 현재 위치 기반으로 주변의 영화관 정보를 보여주기 위해서 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Theater;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -594,9 +647,10 @@
 				DEVELOPMENT_TEAM = GZCWDPJJ9Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sesac-trendMedia/Resource/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 현재 위치 기반으로 주변의 영화관 정보를 보여주기 위해서 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Theater;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
